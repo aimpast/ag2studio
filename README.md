@@ -74,6 +74,8 @@ You will need to set your API keys for your models before you can use them.
 
 The default workflows use the `gpt-4o-mini` model, be sure to set the key and test it under the Models section for that model before running the Default or Travel Planning workflows.
 
+If you are using Amazon Bedrock, select the `bedrock` model type and provide the model name such as `anthropic.claude-3-sonnet-20240229-v1:0` and your AWS credentials.
+
 ### Parameters
 AG2 Studio also takes several parameters to customize the application:
 

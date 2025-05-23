@@ -273,6 +273,13 @@ export const sampleModelConfig = (modelType: string = "open_ai") => {
     description: "Google Gemini Model model",
   };
 
+  const bedrockConfig: IModelConfig = {
+    model: "anthropic.claude-3-sonnet-20240229-v1:0",
+    api_type: "bedrock",
+    base_url: "us-east-1",
+    description: "Amazon Bedrock Claude 3 Sonnet",
+  };
+
   switch (modelType) {
     case "open_ai":
       return openaiConfig;
@@ -280,6 +287,8 @@ export const sampleModelConfig = (modelType: string = "open_ai") => {
       return azureConfig;
     case "google":
       return googleConfig;
+    case "bedrock":
+      return bedrockConfig;
     default:
       return openaiConfig;
   }

@@ -18,6 +18,8 @@ from loguru import logger
 
 from autogen.coding import DockerCommandLineCodeExecutor, LocalCommandLineCodeExecutor
 from autogen.oai.client import ModelClient, OpenAIWrapper
+import boto3
+import json
 
 from ..datamodel import CodeExecutionConfigTypes, Model, Skill
 from ..version import APP_NAME
@@ -424,6 +426,19 @@ def test_model(model: Model):
     """
 
     sanitized_model = sanitize_model(model)
+    if sanitized_model.get("api_type") == "bedrock":
+        region = sanitized_model.get("base_url") or "us-east-1"
+        model_id = sanitized_model["model"]
+        bedrock = boto3.client("bedrock-runtime", region_name=region)
+        body = json.dumps({"prompt": "2+2=", "max_tokens_to_sample": 10})
+        response = bedrock.invoke_model(
+            modelId=model_id,
+            body=body,
+            accept="application/json",
+            contentType="application/json",
+        )
+        output = json.loads(response["body"].read())
+        return output.get("completion") or output.get("generation") or ""
     client = OpenAIWrapper(config_list=[sanitized_model])
     response = client.create(
         messages=[{"role": "user", "content": "2+2="}], cache_seed=None

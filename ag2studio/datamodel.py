@@ -114,6 +114,7 @@ class ModelTypes(str, Enum):
     openai = "open_ai"
     google = "google"
     azure = "azure"
+    bedrock = "bedrock"
 
 
 class Model(SQLModel, table=True):
