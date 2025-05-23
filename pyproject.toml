@@ -31,6 +31,7 @@ dependencies = [
     "arxiv",
     "ag2[gemini]>=0.2.0",
     "python-dotenv",
+    "boto3",
     "websockets",
     "numpy>=2.1.0",
     "sqlmodel",

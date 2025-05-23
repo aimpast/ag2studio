@@ -37,6 +37,12 @@ const ModelTypeSelector = ({
       icon: <CpuChipIcon className="h-6 w-6 text-primary" />,
     },
     {
+      label: "Bedrock",
+      value: "bedrock",
+      description: "Amazon Bedrock",
+      icon: <CpuChipIcon className="h-6 w-6 text-primary" />,
+    },
+    {
       label: "Gemini",
       value: "google",
       description: "Gemini",
@@ -101,6 +107,7 @@ const ModelTypeSelector = ({
       "In addition to OpenAI models, You can also use OSS models via tools like Ollama, vLLM, LMStudio etc. that provide OpenAI compatible endpoint.",
     azure: "Azure OpenAI endpoint",
     google: "Gemini",
+    bedrock: "Amazon Bedrock endpoint",
   };
 
   const [selectedHint, setSelectedHint] = React.useState<string>("open_ai");
