@@ -25,6 +25,8 @@ Then, there are two ways to install AG2 Studio - from PyPi or from source. We **
 
     ```bash
     pip install -U ag2studio
+    # Install with the Bedrock extra if you want Amazon Bedrock support
+    pip install -U "ag2studio[bedrock]"
     ```
 
 2.  **Option 2: Install from Source**
