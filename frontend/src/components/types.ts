@@ -30,6 +30,7 @@ export interface ILLMConfig {
   cache_seed?: number | null;
   temperature: number;
   max_tokens: number;
+  extra_body?: Record<string, any> | null;
 }
 
 export interface IAgentConfig {

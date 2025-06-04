@@ -102,6 +102,8 @@ class Skill(SQLModel, table=True):
 class LLMConfig(SQLModel, table=False):
     """Data model for LLM Config for AutoGen"""
 
+    model_config = {"extra": "allow"}
+
     config_list: List[Any] = Field(default_factory=list)
     temperature: float = 0
     cache_seed: Optional[Union[int, None]] = None
