@@ -309,6 +309,7 @@ export const sampleAgentConfig = (agent_type: string = "assistant") => {
     timeout: 600,
     cache_seed: null,
     max_tokens: 1000,
+    extra_body: null,
   };
 
   const userProxyConfig: IAgentConfig = {
@@ -382,6 +383,7 @@ export const sampleWorkflowConfig = (type = "twoagents") => {
     timeout: 600,
     cache_seed: null,
     max_tokens: 1000,
+    extra_body: null,
   };
 
   const userProxyConfig: IAgentConfig = {
